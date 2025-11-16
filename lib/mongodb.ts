@@ -65,10 +65,7 @@ const gracefulShutdown = async () => {
 
 process.on('SIGINT', gracefulShutdown);
 process.on('SIGTERM', gracefulShutdown);
-process.on('uncaughtException', (err) => {
-  console.error('Uncaught Exception:', err);
-  gracefulShutdown();
-});
+// Removed uncaughtException handler to prevent premature shutdowns
 
 export default clientPromise;
 
